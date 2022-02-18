@@ -14,7 +14,7 @@ public class FourBallClass extends PApplet{
     }
 
     private static void ballCollectionInitialisation() {
-        for (int index = 0; index < 5; index++) {
+        for (int index = 0; index < 4; index++) {
             ballCollection.add(1);
         }
     }
@@ -29,9 +29,9 @@ public class FourBallClass extends PApplet{
     @Override
     public void draw() {
 
-        for (int index = 1; index < 5; index++){
-            int ballNumber = index;
-            int position = ballCollection.get(index-1);
+        for (int index = 0; index < 4; index++){
+            int ballNumber = index+1;
+            int position = ballCollection.get(index);
             int height = (HEIGHT * ballNumber) / 5;
             int diameter = 20;
             ellipse(position, height, diameter, diameter);
@@ -40,6 +40,6 @@ public class FourBallClass extends PApplet{
     }
 
     private void moveToRight(int index, int position) {
-        ballCollection.set(index - 1, position + index);
+        ballCollection.set(index, position + index + 1);
     }
 }
