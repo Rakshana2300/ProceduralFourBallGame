@@ -8,7 +8,7 @@ public class FourBallClass extends PApplet{
     public static final int HEIGHT = 640;
 
     final int diameter = 20;
-    int ballX1,ballX2,ballX3,ballX4;
+    int ballX1, ballX2, ballX3, ballX4;
     int ballY1, ballY2, ballY3, ballY4;
 
     public static void main(String[] args) {
