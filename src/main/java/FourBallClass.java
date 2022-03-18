@@ -6,19 +6,23 @@ public class FourBallClass extends PApplet{
 
     public static final int WIDTH = 800;
     public static final int HEIGHT = 640;
-    public static ArrayList<Integer> ballCollection = new ArrayList<>();
+
+    final int diameter = 20;
+    int ballX1,ballX2,ballX3,ballX4;
+    int ballY1, ballY2, ballY3, ballY4;
 
     public static void main(String[] args) {
         PApplet.main("FourBallClass",args);
-        ballCollectionInitialisation();
     }
 
-    private static void ballCollectionInitialisation() {
-        for (int index = 0; index < 4; index++) {
-            ballCollection.add(1);
-        }
+    @Override
+    public void setup() {
+        ballX1 = ballX2 = ballX3 = ballX4 = 1;
+        ballY1 = HEIGHT/5;
+        ballY2 = 2 * HEIGHT/5;
+        ballY3 = 3 * HEIGHT/5;
+        ballY4 = 4 * HEIGHT/5;
     }
-
 
     @Override
     public void settings() {
@@ -28,18 +32,17 @@ public class FourBallClass extends PApplet{
 
     @Override
     public void draw() {
+        ellipse(ballX1, ballY1, diameter, diameter);
+        ballX1++;
 
-        for (int index = 0; index < 4; index++){
-            int ballNumber = index+1;
-            int position = ballCollection.get(index);
-            int height = (HEIGHT * ballNumber) / 5;
-            int diameter = 20;
-            ellipse(position, height, diameter, diameter);
-            moveToRight(index, position);
-        }
+        ellipse(ballX2, ballY2, diameter, diameter);
+        ballX2 += 2;
+
+        ellipse(ballX3, ballY3, diameter, diameter);
+        ballX3 += 3;
+
+        ellipse(ballX4, ballY4, diameter, diameter);
+        ballX4 += 4;
     }
 
-    private void moveToRight(int index, int position) {
-        ballCollection.set(index, position + index + 1);
-    }
 }
